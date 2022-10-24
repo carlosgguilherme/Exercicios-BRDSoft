@@ -1,0 +1,19 @@
+{
+  "name": "vendor_name/Guilherme",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Guilherme",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "Guilherme/App"
+    }
+  }
+}
