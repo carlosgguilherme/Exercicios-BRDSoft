@@ -44,4 +44,29 @@ class Operacoes extends Crud
       }
 
   }
+
+
+  public function telefone(){
+    $ar = ['3533631123', '47988887777', '2130904120'];
+    foreach ($ar as $key=>$value){
+        echo "INSERT INTO numberCarrier VALUES ( '". $value ."', ". SUBSTR($value,0,2) .", 1009);";
+        echo "<br/>";
+    
+    }
+  }
+
+  public function formatTelefone($telefone){
+    $ddd = '';
+    $tel = '';
+
+    if(SUBSTR($telefone,0,1) == 0 ){
+       $ddd = SUBSTR($telefone,0,3);
+       $tel = SUBSTR($telefone,3,10);
+    }else{
+        $ddd = SUBSTR($telefone,0,2);
+        $tel = SUBSTR($telefone,2,10);
+    }
+
+    return "(".$ddd.") ".$tel;
+}
 }

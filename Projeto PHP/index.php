@@ -123,8 +123,8 @@ if(!empty($_POST['semana'])){
          $msg =  "Valor Inválido.";
          $tipo = "danger";
     }else{
-      $msg = $result;
-      $tipo = "success";
+        $msg = $result;
+        $tipo = "success";
     }
 
     ?>
@@ -137,12 +137,40 @@ if(!empty($_POST['semana'])){
 }
 ?>
 <hr/>
+<p>
+    Construa um formulário onde o usuário digite um número de telefone com o 
+    ddd Ex.: 3533631123. Com base no número digitado, retorne separadamente o 
+    DDD e o Número para o cliente.
+</p>
+<div class="card">
+    <div class="card-body">
+        <form class="form-inline" method="post">
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="telefone" class="sr-only">Telefone</label>
+                <input type="text" class="form-control" id="telefone" placeholder="Digite o telefone" name="telefone" maxlength="12">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Formatar telefone</button>
+        </form>
+    </div>
+</div>
+<?php
+ if(!empty($_POST['telefone'])){
+    $telefone = new Operacoes;
+    $msg = "";
+    $tipo = "";
+    echo $result =  $telefone->formatTelefone($_POST['telefone']);
+ }
+ 
+?>
 
+<hr/>
 <?php
 $carro = new Carros;
+$telefone->telefone();
 
-/*
-$dados = [
+
+
+/* $dados = [
     "0" => [
         "Marca" => "Fiat",
         "Modelo" => "Uno",
