@@ -5,6 +5,8 @@ require_once __DIR__.'/vendor/autoload.php';
 
 use App\Classes\Carros;
 use App\Classes\Operacoes;
+use App\classes\Usuarios;
+
 
 include 'App/includes/header.php';
 ?>
@@ -197,6 +199,36 @@ $tipo = "dark";
 
 
 <hr/>
+<h1>Listar usuários</h1>
+<?php
+    $usuarios = new Usuarios;
+    $index = 0 ;
+    $qtd = count($usuarios->ListaUsuarios());
+    $res = $usuarios->ListaUsuarios();
+    if($qtd > 0){
+        print "<table class ='table table-hover table-striped table-bordered'>";
+        print "<tr>";
+        print "<th>id</th>";
+        print "<th>Nome</th>";
+        print "<th>E-mail</th>";
+        print "<th>Telefone</th>";
+        print "</tr>";
+    while($index < $qtd){
+        print "<tr>";
+        print "<td>".$res[$index][0]."</td>";
+        print "<td>".$res[$index][1]."</td>";
+        print "<td>".$res[$index][2]."</td>";
+        print "<td>".$res[$index][3]."</td>";
+        print "</tr>";
+        $index++; 
+        
+    }
+    print "</table>";
+    }else{
+        print "<p class='alert alert danger'> Não encontrou resultados!</p>";
+    }
+
+?>
 <?php
 /*
 $carro = new Carros;

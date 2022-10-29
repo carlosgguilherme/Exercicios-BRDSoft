@@ -2,7 +2,7 @@
 
 namespace App\classes;
 
-class Operacoes extends Crud
+class Operacoes 
 {
   public function media($nota1,$nota2){
       $notaFinal = 0;
